@@ -19,7 +19,7 @@
 
 | Task | Score | Rank |
 |------|-------|------|
-| Task 1 - Binary Soil Classification | 1.000 | 56 |
+
 | Task 2 - Multi-Class Soil Image Classification | 0.8989 | 37 |
 
 ---
@@ -42,7 +42,9 @@
 ---
 
 ## 🧠 Approach Overview
-
+<p align="center">
+  <img src="https://github.com/sanskaryo/Soil_classification_project_annam/blob/main/challenge2/docs/project_image.jpg?raw=true" alt="Project Image" width="500"/>
+</p>
 ### 🔹 Task Objective
 
 Classify soil images into one of the four categories:  
