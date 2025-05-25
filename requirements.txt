@@ -6,3 +6,59 @@ pandas
 scikit-learn
 matplotlib
 seaborn
+
+# Core Python ML libraries
+numpy==1.24.4
+pandas==1.5.3
+scikit-learn==1.3.0
+
+# Deep Learning - PyTorch stack
+torch==2.1.0
+torchvision==0.16.0
+torchaudio==2.1.0
+
+# CUDA / GPU Monitoring (optional)
+nvidia-ml-py3==7.352.0
+
+# Data loading & image handling
+opencv-python==4.8.0.76
+Pillow==9.5.0
+imageio==2.31.1
+
+# Data Augmentation
+albumentations==1.3.1
+imgaug==0.4.0
+
+# Experiment Tracking & Logging
+tensorboard==2.14.0
+mlflow==2.8.1
+tqdm==4.66.1
+
+# Visualization
+matplotlib==3.7.1
+seaborn==0.12.2
+plotly==5.18.0
+
+# YAML Config Management
+PyYAML==6.0.1
+omegaconf==2.3.0
+hydra-core==1.3.2
+
+# Jupyter Support
+ipython==8.15.0
+jupyterlab==4.0.5
+notebook==7.0.4
+
+# File system utilities
+glob2==0.7
+pathlib==1.0.1
+
+# Logging (optional)
+loguru==0.7.2
+
+# Performance Optimization
+numba==0.57.1
+joblib==1.3.2
+
+# Other helpers (optional)
+pytest==7.4.2

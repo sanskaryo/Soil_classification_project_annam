@@ -1,181 +1,182 @@
-<h1> 🌱 Soil & Non-Soil Classification | Annam.ai @ IIT Ropar </h1>
+<h1>🏆 Soil Classification Challenge Submission</h1>
 
-<p>
-This repository documents my solo submissions for both tasks in the AI + Internship challenge organized by <strong>Annam.ai</strong> in collaboration with <strong>IIT Ropar</strong>. The goal of this challenge was to classify soil types from images and distinguish soil vs non-soil samples using deep learning. I participated as an independent undergraduate and put my heart into solving both tasks with resourceful and explainable ML solutions.
-</p>
+<p>This project was developed as part of the Hackathon + Internship opportunity organized by IIT Ropar and Annam.ai. I, Sanskar Khandelwal, participated solo and built ML models for classifying soil types from images. This task aimed to automate soil-type classification to assist in agriculture and sustainability using AI. Special thanks to <strong>Sudarshan Iyengar</strong>, <strong>Madhur Tharuja</strong>, and the entire <strong>Annam AI & IIT Ropar</strong> team for organizing this opportunity!</p>
 
 ---
 
 ## 👤 Participant Details
 
 - **Name:** Sanskar Khandelwal  
+- **Team Name:** solo_sanskar  
+- **Year:** 2nd Year B.Tech CSE (AIML)  
+- **University:** GLA University, Mathura  
 - **Email:** sanskar.khandelwal_cs.aiml23@gla.ac.in  
-- **College:** GLA University, Mathura  
-- **Course:** B.Tech, CSE AIML (2nd Year)  
-- **Team:** Solo participant  
-- **Radhe Radhe 🙏**
+- **Radhe Radhe! 🙏**  
 
 ---
 
-## 🏅 Leaderboard Performance
+## 📊 Leaderboard Performance
 
-| Task | Rank | Score |
-|------|------|--------|
-| Soil / Non-Soil Classification | 37 | 0.8989 |
-| Soil Type Classification (Alluvial, Black, Clay, Red) | 56 | 1.000 |
-
----
-
-## 🙏 Special Thanks
-
-A heartfelt thank you to:
-
-- **Sudarshan Iyengar**
-- **Madhur Tharuja**
-- The entire **Annam.ai & IIT Ropar team**
-
-Apologies in case my submission felt incomplete compared to team entries — I was a solo participant. Still, I learned a lot and look forward to next rounds if selected!
+| Task | Score | Rank |
+|------|-------|------|
+| Task 1 - Binary Soil Classification | 1.000 | 56 |
+| Task 2 - Multi-Class Soil Image Classification | 0.8989 | 37 |
 
 ---
 
-## 🗂️ Repository Structure
+## 🗂️ Project Structure
 
 ```bash
 .
-├── soil_type/
-│   ├── training.ipynb      # Training notebook for 4-class soil classification
-│   └── inference.ipynb     # Inference + submission notebook
-│
-├── binary_soil/
-│   ├── training.ipynb      # Soil vs Non-Soil model training
-│   └── inference.ipynb     # Inference for binary classification
-│
-├── submission/
-│   ├── soil_type_submission.csv
-│   └── binary_submission.csv
-│
-├── requirements.txt        # Required libraries
-├── download_data.sh        # Dataset download automation
-└── README.md               # This file
-
+├── notebooks/
+│   ├── training.ipynb         # Training pipeline for CNN classifier
+│   └── inference.ipynb        # Generates predictions and submission CSV
+├── models/                    # Saved model weights
+├── data/                      # Preprocessed dataset
+├── requirements.txt           # Python dependencies
+├── download.sh                # Dataset download script
+├── submission.csv             # Final submission predictions
+└── README.md                  # This file
 ```
 
-🧠 Problem Statements
-Task 1: Classify an image as either Soil or Non-Soil (binary classification)
+---
 
-Task 2: Classify each image into one of four soil types:
+## 🧠 Approach Overview
 
-Alluvial
+### 🔹 Task Objective
 
-Black
+Classify soil images into one of the four categories:  
+- Alluvial  
+- Black  
+- Clay  
+- Red
 
-Clay
+### 🔹 Modeling Pipeline
 
-Red
+- **Model Architecture:** Transfer learning using pretrained CNNs like ResNet-18, EfficientNet-B0
+- **Training Strategy:**  
+  - Image normalization, resizing to 224x224  
+  - Stratified train-validation split  
+  - Data augmentation (flip, rotate, brightness)  
+  - Cross-validation for robustness  
+- **Inference:**  
+  - Test-Time Augmentation (TTA)  
+  - Ensemble averaging for stability  
 
-🧠 Modeling Approach
-✅ Common Preprocessing
-Image resizing to 224x224
+---
 
-RGB normalization (mean/std as per ImageNet)
+## 🛠️ Tools & Technologies
 
-Data augmentation (flip, rotation, color jitter)
+- Python 🐍  
+- PyTorch / Torchvision  
+- Scikit-learn  
+- OpenCV  
+- Matplotlib / Seaborn  
+- Jupyter Notebooks
 
-Stratified data split for validation consistency
+---
 
-🔍 Feature Extraction
-Used pretrained ResNet-18 as base CNN
+## 📓 Notebooks Breakdown
 
-Extracted 512-D embeddings from penultimate layer
+### `training.ipynb`
 
-Trained classic Random Forest on top of embeddings
+- Loads and preprocesses image dataset
+- Applies augmentations and normalizations
+- Extracts features using pretrained CNNs (e.g., ResNet18)
+- Trains classifiers (e.g., fully connected layers or Random Forests)
+- Plots metrics and saves trained models
 
-🧪 Model Training
-Used Stratified K-Fold Cross Validation (K=5)
+### `inference.ipynb`
 
-Saved best models based on F1 score
+- Loads saved models and test data
+- Applies TTA (horizontal/vertical flips, brightness)
+- Generates predictions
+- Outputs `submission.csv` as per competition format
 
-Test-Time Augmentation (TTA) during prediction
+---
 
-📈 Evaluation Metric
-🔥 Minimum F1-Score across all classes (for Task 2)
-This metric ensures balanced performance across all categories by using the worst-performing class as the final score.
+## 📈 Evaluation Metric
 
-📓 Notebooks
-training.ipynb
-Load and preprocess training images
+- **Metric Used:** Minimum F1-score across all 4 classes  
+- This ensures balanced performance — even the lowest performing class matters!
 
-Extract deep features using pretrained ResNet
+```python
+from sklearn.metrics import f1_score
+score = min([
+    f1_score(y_true, y_pred, average=None)[i] for i in range(4)
+])
+```
 
-Train classifiers (Random Forest / Logistic Regression)
+---
 
-Save best models and logs
+## ⚙ Setup Instructions
 
-inference.ipynb
-Load saved models and test images
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/soil-classification
+cd soil-classification
+```
 
-Apply TTA for robustness
-
-Save predictions in submission-ready CSV format
-
-⚙️ How to Run
-Clone this repository:
-
-bash
-Copy
-Edit
-git clone https://github.com/sanskarofficial/soil-annam.git
-cd soil-annam
-Install dependencies:
-
-bash
-Copy
-Edit
+2. **Install dependencies**
+```bash
 pip install -r requirements.txt
-Download dataset:
+```
 
-bash
-Copy
-Edit
-bash download_data.sh
-Run training:
+3. **Download the dataset**
+```bash
+bash download.sh
+```
 
-bash
-Copy
-Edit
-# For Soil vs Non-Soil
-cd binary_soil
-jupyter notebook training.ipynb
+4. **Run notebooks**
+- `notebooks/training.ipynb` → train models  
+- `notebooks/inference.ipynb` → generate `submission.csv`
 
-# For Soil Type Classification
-cd ../soil_type
-jupyter notebook training.ipynb
-Generate Predictions:
+---
 
-bash
-Copy
-Edit
-jupyter notebook inference.ipynb
-✨ Highlights
-💪 Solo effort by 2nd-year undergrad
+## ⚡ Why This Approach Works
 
-📊 Strong F1 scores on both tasks
+✅ Combines deep learning feature extraction with classical ML models  
+✅ Test-Time Augmentation for robust predictions  
+✅ Balanced F1-score strategy ensures no class is ignored  
+✅ Simple yet effective – reproducible and scalable  
 
-🔁 Test-Time Augmentation improved generalization
+---
 
-🧠 Classic ML + Deep feature fusion worked better than end-to-end training (less overfit)
+## 💬 Reflections
 
-🤝 Acknowledgements
-Annam.ai & IIT Ropar for organizing the challenge
+I participated solo in this challenge and acknowledge that my submission may not compete head-to-head with full teams, but I gave my best and learned a lot! Looking forward to the next rounds if selected. Jai Shree Krishna 🙏
 
-PyTorch team for ResNet backbone
+---
 
-Fellow competitors and open source inspirations
+## 🤝 Acknowledgements
 
-🙋‍♂️ Author
-Sanskar Khandelwal
-Email: sanskar.khandelwal_cs.aiml23@gla.ac.in
-Radhe Radhe 🙏
+- Organizers: Annam.ai, IIT Ropar  
+- Pretrained models: PyTorch Model Zoo  
+- Community support and dataset providers  
+- Inspiration from top teams and peers in this domain
 
-📜 License
-This project is under the MIT License – feel free to use, modify, or extend it for educational and research purposes.
+---
+
+## 👨‍💻 Author
+
+**Sanskar Khandelwal**  
+Email: `sanskar.khandelwal_cs.aiml23@gla.ac.in`  
+University: GLA University, Mathura  
+Connect with me for ML, AI, or vision projects! 🚀
+
+---
+
+## 📬 Contact
+
+If any reviewer or peer wants to discuss this submission or connect:
+- **Email:** sanskar.khandelwal_cs.aiml23@gla.ac.in
+
+---
+
+## ⚖️ License
+
+This project is submitted as part of a Hackathon and is intended for academic and educational review. Please contact me for further use.
+
+---
+
+<p align="center"><strong>🚜 Towards Sustainable AI-Powered Agriculture! 🚀</strong></p>
