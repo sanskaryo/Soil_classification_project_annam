@@ -89,7 +89,7 @@ Classify soil images into one of the four categories:
 ### `inference.ipynb`
 
 - Loads saved models and test data
-- Applies TTA (horizontal/vertical flips, brightness)
+- Applies albumenations (horizontal/vertical flips, brightness)
 - Generates predictions
 - Outputs `submission.csv` as per competition format
 
@@ -136,7 +136,6 @@ bash download.sh
 ## ⚡ Why This Approach Works
 
 ✅ Combines deep learning feature extraction with classical ML models  
-✅ Test-Time Augmentation for robust predictions  
 ✅ Balanced F1-score strategy ensures no class is ignored  
 ✅ Simple yet effective – reproducible and scalable  
 
@@ -151,7 +150,7 @@ I participated solo in this challenge and acknowledge that my submission may not
 ## 🤝 Acknowledgements
 
 - Organizers: Annam.ai, IIT Ropar  
-- Pretrained models: PyTorch Model Zoo  
+- Pretrained models: Resnet 18  
 - Community support and dataset providers  
 - Inspiration from top teams and peers in this domain
 
