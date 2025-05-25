@@ -11,7 +11,7 @@ data-1/train/
 data-1/test/
 data-1/*.csv
 data-1/**/*.csv
-data-1/**/*.jpg
+
 data-1/**/*.jpeg
 data-1/**/*.png
 data-1/**/*.bmp
@@ -93,7 +93,6 @@ data/
 data-1/
        
 *.npy            # e.g. label_encoder_classes.npy
-*.jpg
 
 *.bmp
 *.tiff
