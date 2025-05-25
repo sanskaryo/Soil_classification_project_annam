@@ -44,10 +44,7 @@
 
 ---
 
-## 🧠 Approach Overview
-<p align="center">
-  <img src="https://github.com/sanskaryo/Soil_classification_project_annam/blob/main/challenge2/docs/project_image.jpg?raw=true" alt="Project Image" width="500"/>
-</p>
+
 ### 🔹 Task Objective
 
 Classify soil images into one of the four categories:  
