@@ -1,7 +1,7 @@
 <h1 align="center">🌱 Soil Image Classification Challenge</h1>
 
 <p align="center">
-  <img src="docs/cards/architecture.png" alt="Model Architecture" width="500"/>
+  <img src="https://github.com/sanskaryo/Soil_classification_project_annam/blob/main/challenge2/docs/project_image.jpg?raw=true" alt="Project Image" width="500"/>
 </p>
 
 <p align="center">
