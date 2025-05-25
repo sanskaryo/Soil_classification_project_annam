@@ -1,0 +1,51 @@
+{
+    "num_predictions": 341,
+    "classes": [
+        "Alluvial soil",
+        "Black Soil",
+        "Clay soil",
+        "Red soil"
+    ],
+    "sample_predictions": [
+        [
+            "img_cdf80d6f.jpeg",
+            "Alluvial soil"
+        ],
+        [
+            "img_c0142a80.jpg",
+            "Alluvial soil"
+        ],
+        [
+            "img_91168fb0.jpg",
+            "Alluvial soil"
+        ],
+        [
+            "img_9822190f.jpg",
+            "Alluvial soil"
+        ],
+        [
+            "img_e5fc436c.jpeg",
+            "Alluvial soil"
+        ],
+        [
+            "img_3d6e64a1.jpg",
+            "Alluvial soil"
+        ],
+        [
+            "img_ccb81e64.jpeg",
+            "Alluvial soil"
+        ],
+        [
+            "img_9a499fc5.jpeg",
+            "Alluvial soil"
+        ],
+        [
+            "img_b957da08.jpeg",
+            "Clay soil"
+        ],
+        [
+            "img_c62bd1a1.jpg",
+            "Alluvial soil"
+        ]
+    ]
+}

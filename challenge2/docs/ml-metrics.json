@@ -1,0 +1,12 @@
+{
+  "metrics": {
+    "f1_score": {
+      "description": "F1 score is the harmonic mean of precision and recall",
+      "range": [0.0, 1.0],
+      "goal": "maximize"
+    },
+    "threshold_optimization": {
+      "method": "Sweep from 0.1 to 0.9 with step 0.01 and select best threshold based on F1"
+    }
+  }
+}

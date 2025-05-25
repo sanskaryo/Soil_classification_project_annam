@@ -1,0 +1,13 @@
+# Ignore training and test data
+data-1/train/
+data-1/test/
+data-1/*.csv
+data-1/**/*.csv
+data-1/**/*.jpg
+data-1/**/*.jpeg
+data-1/**/*.png
+data-1/**/*.bmp
+data-1/**/*.tiff
+data-1/**/*.gif
+notebooks/.ipynb_checkpoints
+.ipynb_checkpoints/
