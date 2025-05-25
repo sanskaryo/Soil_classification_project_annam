@@ -97,28 +97,42 @@ def tune_threshold(y_true, y_probs):
     thresholds = np.arange(0.1, 0.9, 0.01)
     ...
 🧰 Usage
-🔧 Setup
-bash
-Copy
-Edit
-git clone https://github.com/your-username/soil-image-classifier
-cd challenge-1
-pip install -r requirements.txt
-📦 Download Dataset
-bash
-Copy
-Edit
-bash data/download.sh
-🚀 Train the Model
-bash
-Copy
-Edit
-Open notebooks/training.ipynb
-🔍 Run Inference
-bash
-Copy
-Edit
-Open notebooks/inference.ipynb
+## 🚀 Setup & Run
+
+Follow these steps to get started locally:
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/soil-classification-project.git
+   cd soil-classification-project
+   ```
+
+2. **Install Python dependencies**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Download the dataset**
+
+   ```bash
+   bash download.sh  # run in bash/WSL/Git Bash on Windows
+   ```
+
+4. **Generate synthetic 'Not Soil' images**
+
+   ```bash
+   python src/preprocessing.py
+   ```
+
+5. **Train the model**
+
+   Open `notebooks/training.ipynb` in Jupyter and run all cells to train and validate.
+
+6. **Run Inference**
+
+   Open `notebooks/inference.ipynb` in Jupyter and execute all cells to generate final predictions.
 📊 Result
 Metric	Score
 F1 Score	0.8989
