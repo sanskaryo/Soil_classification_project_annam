@@ -86,8 +86,7 @@ data-1/
        
 *.npy            # e.g. label_encoder_classes.npy
 *.jpg
-*.jpeg
-*.png
+
 *.bmp
 *.tiff
 *.gif
