@@ -1,0 +1,12 @@
+{
+    "accuracy": 0.9991816693944353,
+    "macro_f1": 0.9992230763718998,
+    "macro_precision": 0.9989224137931034,
+    "macro_recall": 0.9995265151515151,
+    "class_names": [
+        "Alluvial soil",
+        "Black Soil",
+        "Clay soil",
+        "Red soil"
+    ]
+}
