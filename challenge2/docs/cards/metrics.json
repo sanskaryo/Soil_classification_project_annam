@@ -1,0 +1,31 @@
+{
+    "task": "One-Class Soil Detection",
+    "approach": "Anomaly Detection using ResNet18 + One-Class SVM",
+    "model": {
+        "feature_extractor": "ResNet18 (ImageNet pretrained)",
+        "anomaly_model": "OneClassSVM (RBF kernel)",
+        "feature_dim": 512,
+        "nu": 0.1,
+        "scaler": "StandardScaler (mean=0, std=1)",
+        "training_samples": 1222
+    },
+    "training_data_used": "Only positive class (soil images)",
+    "testing_goal": "Identify non-soil images as outliers",
+    "evaluation": {
+        "recall_on_soil_train": 0.8895253682487725,
+        "false_negatives_estimate": 135,
+        "recall_percent": 88.95
+    },
+    "team_info": {
+        "name": "Sanskar Khandelwal",
+        "kaggle_username": "sankhuz",
+        "team": "TheLastTransformer"
+    },
+    "files": {
+        "train_features": "train_features.npy",
+        "test_features": "test_features.npy",
+        "test_ids": "test_ids.npy",
+        "metrics_file": "metrics.json"
+    },
+    "notes": "Model trained only on positive samples. No non-soil training data used."
+}
