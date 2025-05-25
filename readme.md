@@ -1,8 +1,6 @@
 <h1>🏆 Soil Classification Challenge Submission</h1>
 
-<p align="center">
-  <img src="https://github.com/sanskaryo/Soil_classification_project_annam/blob/main/challenge2/docs/project_image.jpg?raw=true" alt="Project Image" width="500"/>
-</p>
+
 
 <p>This project was developed as part of the Hackathon + Internship opportunity organized by IIT Ropar and Annam.ai. I, Sanskar Khandelwal, participated solo and built ML models for classifying soil types from images. This task aimed to automate soil-type classification to assist in agriculture and sustainability using AI. Special thanks to <strong>Sudarshan Iyengar</strong>, <strong>Madhur Tharuja</strong>, and the entire <strong>Annam AI & IIT Ropar</strong> team for organizing this opportunity!</p>
 
@@ -21,9 +19,10 @@
 
 ## 📊 Leaderboard Performance
 
+
 | Task | Score | Rank |
 |------|-------|------|
-
+| Task 1 - Binary Soil Classification | 1.000 | 56 |
 | Task 2 - Multi-Class Soil Image Classification | 0.8989 | 37 |
 
 ---
