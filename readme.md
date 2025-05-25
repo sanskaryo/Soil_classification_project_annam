@@ -58,7 +58,7 @@ Apologies in case my submission felt incomplete compared to team entries — I w
 ├── download_data.sh        # Dataset download automation
 └── README.md               # This file
 
-
+```
 
 🧠 Problem Statements
 Task 1: Classify an image as either Soil or Non-Soil (binary classification)
