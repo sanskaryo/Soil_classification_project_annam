@@ -11,3 +11,92 @@ data-1/**/*.tiff
 data-1/**/*.gif
 notebooks/.ipynb_checkpoints
 .ipynb_checkpoints/
+data\soil_classification-2025
+
+.pkl
+.pth
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+*.egg-info/
+pip-wheel-metadata/
+*.egg
+MANIFEST
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Translations
+*.mo
+*.pot
+
+# Jupyter Notebook
+.ipynb_checkpoints
+profile_default/
+.ipython/
+
+# Environment
+.env
+.venv
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# VSCode workspace/settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Data and outputs
+data/
+data-1/
+       
+*.npy            # e.g. label_encoder_classes.npy
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+*.gif
+
+# Models and checkpoints
+models/
+*.pth
+*.pkl
+
+# Notebook outputs
+*.nb.html
+*.nbconvert.ipynb
