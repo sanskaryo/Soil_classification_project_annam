@@ -23,7 +23,7 @@ data\soil_classification-2025
 
 .pkl
 .pth
-
+kaggle.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

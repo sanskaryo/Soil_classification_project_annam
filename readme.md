@@ -2,25 +2,36 @@
 
 <p>This project was developed as part of the Hackathon + Internship opportunity organized by IIT Ropar and Annam.ai. I, Sanskar Khandelwal, participated solo and built ML models for classifying soil types from images. This task aimed to automate soil-type classification to assist in agriculture and sustainability using AI. Special thanks to <strong>Sudarshan Iyengar</strong>, <strong>Madhur Tharuja</strong>, and the entire <strong>Annam AI & IIT Ropar</strong> team for organizing this opportunity!</p>
 
+<p align="center">
+  <img src="Full_project_image.png" alt="Project Overview" />
+</p>
+
+<p>Below is the detailed overview of my project, approach, and findings.</p>
+
 ---
 
 ## 👤 Participant Details
 
 - **Name:** Sanskar Khandelwal  
-- **Team Name:** solo_sanskar  
-- **Year:** 2nd Year B.Tech CSE (AIML)  
+- **Team Name:** TheLastTransformer
+- **Year:** 2nd Year B.Tech CSE 
 - **University:** GLA University, Mathura  
 - **Email:** sanskar.khandelwal_cs.aiml23@gla.ac.in  
 - **Radhe Radhe! 🙏**  
+
+> **Note:** Apologies for minor errors. Initially the entire pipeline was in a single notebook, which has now been refactored into this structured repository.
 
 ---
 
 ## 📊 Leaderboard Performance
 
-| Task | Score | Rank |
-|------|-------|------|
-| Task 1 - Binary Soil Classification | 1.000 | 56 |
-| Task 2 - Multi-Class Soil Image Classification | 0.8989 | 37 |
+| Task                                         | Score  | Public Rank | Private Rank |
+|----------------------------------------------|--------|-------------|--------------|
+| Task 1 - Binary Soil Classification          | 1.000  | 56          | 40           |
+| Task 2 - Multi-Class Soil Image Classification | 0.8989 | 37          | 48           |
+
+
+
 
 ---
 
@@ -28,16 +39,24 @@
 
 ```bash
 .
-├── notebooks/
-│   ├── training.ipynb         # Training pipeline for CNN classifier
-│   └── inference.ipynb        # Generates predictions and submission CSV
-├── models/                    # Saved model weights
-├── data/                      # Preprocessed dataset
-├── requirements.txt           # Python dependencies
-├── download.sh                # Dataset download script
-├── submission.csv             # Final submission predictions
-└── README.md                  # This file
+├── challenge-1/             # Binary classification resources
+│   ├── notebooks/           # Notebooks & scripts for Task 1
+│   └── README.md            # Detailed Challenge 1 instructions
+├── challenge2/              # Multi-class classification resources
+│   ├── notebooks/           # Notebooks & scripts for Task 2
+│   └── README.md            # Detailed Challenge 2 instructions
+├── notebooks/               # Legacy notebooks (training & inference)
+│   ├── training.ipynb
+│   └── inference.ipynb
+├── models/                  # Saved model weights
+├── data/                    # (Not included) -- download manually
+├── requirements.txt         # Python dependencies
+├── download.sh              # Dataset download script
+├── submission.csv           # Final submission predictions
+└── README.md                # This file
 ```
+
+> **Note:** Data is excluded due to size; download manually. Large files are ignored via `.gitignore`.
 
 ---
 
@@ -60,7 +79,7 @@ Classify soil images into one of the four categories:
   - Data augmentation (flip, rotate, brightness)  
   - Cross-validation for robustness  
 - **Inference:**  
-  - Test-Time Augmentation (TTA)  
+ 
   - Ensemble averaging for stability  
 
 ---
@@ -75,7 +94,13 @@ Classify soil images into one of the four categories:
 - Jupyter Notebooks
 
 ---
+---
 
+## 📚 Additional Resources
+- **Transcript:** https://drive.google.com/file/d/1eF-W1mjo6NA-FzupMtfFTC-9WZPRY5B3/view?usp=drive_link
+- **Video Explanation:** https://drive.google.com/drive/folders/1pHEEjiZYHQqzNbf4oZW7LKfg8oL2sz5W?usp=drive_link
+
+---
 ## 📓 Notebooks Breakdown
 
 ### `training.ipynb`
@@ -162,6 +187,7 @@ I participated solo in this challenge and acknowledge that my submission may not
 Email: `sanskar.khandelwal_cs.aiml23@gla.ac.in`  
 University: GLA University, Mathura  
 Connect with me for ML, AI, or vision projects! 🚀
+kaggle username - sankhuz
 
 ---
 
@@ -176,6 +202,6 @@ If any reviewer or peer wants to discuss this submission or connect:
 
 This project is submitted as part of a Hackathon and is intended for academic and educational review. Please contact me for further use.
 
----
+
 
 <p align="center"><strong>🚜 Towards Sustainable AI-Powered Agriculture! 🚀</strong></p>

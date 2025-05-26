@@ -1,78 +1,201 @@
-#  Soil Classification Hackathon Challenge-1
+# 🌱 Soil Image Classification – Challenge 1
 
-This project performs soil type classification using a deep learning model trained on soil spectral or feature data. The model is developed in PyTorch and evaluated with metrics such as Accuracy and F1-score.
+Welcome to my solution for Challenge 1 of the Soil Classification Competition on Kaggle 2025. In this notebook-driven project, our goal was to classify soil images into four distinct categories based on visual characteristics:
+
+- **Alluvial**  
+- **Black**  
+- **Clay**  
+- **Red**  
+
+We combine a deep‐learning feature extractor (ResNet-18) with a classical Random Forest classifier to build a robust multi‐class image classifier.
 
 ---
 
-##  Dataset
+## 🚀 Final Results
 
-We use the dataset provided through the [Kaggle Competition: Soil Classification](https://www.kaggle.com/competitions/soil-classification).
+| Metric                              | Value   |
+|-------------------------------------|--------:|
+| 🏁 Private Leaderboard Rank          | 40      |
+| • Avg CV Macro F1-Score              | 0.9446  |
+| • Best Fold (Fold 5) F1-Score        | 0.9705  |
+| • Public LB Score                    | 1.000   |
 
-To download the dataset, use the provided shell script:
+🏆 **Submission Strategy:** ResNet18 (ImageNet-pretrained) + Random Forest Ensemble learning
 
-```bash
-bash download.sh
+---
+
+## 🔍 Problem Statement
+
+Build a robust classifier that can distinguish between soil types using only RGB images. Key challenges:
+
+- Visual similarity & texture variations  
+- Lighting and background noise  
+- Class imbalance  
+
+---
+
+## 🗺️ Pipeline Overview
+Below is a vertical diagram illustrating the main structure of the classification pipeline:
+
+![Pipeline Diagram](docs/cards/challenege1_image.png)
+
+## 📦 Dataset
+
+Download from Kaggle:  
+https://www.kaggle.com/competitions/soil-classification/data
+
+Unpack into your project directory as:
+
 ```
-##  Model Details
-
-- **Framework**: PyTorch  
-- **Backbone**: ResNet18-based neural network  
-- **Input**: Numerical soil features  
-- **Output**: Soil class prediction  
-- **Current F1-score**: **0.96**
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/nav-jk/soil_classification_1_annam
-cd soil_classification_1_annam
+challenge-1/
+└── data/
+    ├── train/
+    │   ├── image_1.jpg
+    │   ├── image_2.jpg
+    │   └── ...
+    ├── test/
+    │   ├── image_101.jpg
+    │   ├── image_102.jpg
+    │   └── ...
+    ├── train_labels.csv
+    └── test_ids.csv
 ```
-### 2. Model Training
 
-Open and run the notebook:
+---
 
-```markdown
-training.ipynb
+## 🛠️ Setup
+
+1. **Clone the repository**
+   ```cmd
+   git clone https://github.com/sanskaryo/Soil_classification_project_annam.git
+   cd Soil_classification_project_annam/challenge-1
+   ```
+
+2. **Install dependencies**
+   ```cmd
+   pip install -r requirements.txt
+   ```
+
+---
+
+## 🔄 Preprocess Data
+
+Use the provided helper to resize and normalize all images:
+
+```python
+from src.preprocessing import preprocess_images
+
+# Resize train and test images to 224×224
+preprocess_images(
+    train_dir='data/train',
+    img_size=(224, 224),
+    out_dir='data/train_preprocessed'
+)
+preprocess_images(
+    train_dir='data/test',
+    img_size=(224, 224),
+    out_dir='data/test_preprocessed'
+)
 ```
-### 3.Inference
 
-To make predictions on new soil data, open and run:
+---
 
-```markdown
-inference.ipynb
+## 📖 Training
+
+1. Open and run:  
+   ```markdown
+   notebooks/training.ipynb
+   ```
+2. This notebook will:
+   - Load and augment images  
+   - Extract features via ResNet-18  
+   - Train & validate a Random Forest (5-fold CV)  
+   - Save `models/final_model.pkl` and `models/label_classes.npy`
+
+---
+
+## 🔮 Inference
+
+1. Open and run:  
+   ```markdown
+   notebooks/inference.ipynb
+   ```
+2. It will:
+   - Reload the saved model & label classes  
+   - Extract features on the test set  
+   - Generate `outputs/submission.csv`
+
+---
+
+## 🚀 One-Click Run
+
+To run preprocessing, training & inference in one go (with charts), open and execute:
 ```
-##  Model Insight
+src/combined-prePost-notebook_with_charts.ipynb
+```
+A final `submission.csv` will be generated under `outputs/`.
 
-### Overview
+---
 
-The soil classification model is built using a **ResNet18-based neural network** implemented in PyTorch. ResNet (Residual Network) is a deep convolutional neural network architecture designed to tackle the vanishing gradient problem by introducing residual connections. These connections allow gradients to flow more easily through deep networks during training, enabling the network to learn more complex patterns effectively.
+## 📁 Project Structure
 
-### Why ResNet18?
+```
+challenge-1/
+├── data/                          # Raw and preprocessed images + CSVs
+├── notebooks/
+│   ├── training.ipynb            # End-to-end training pipeline
+│   ├── inference.ipynb           # Inference & submission generation
+│   └── combined-prePost-notebook_with_charts.ipynb
+├── src/
+│   ├── preprocessing.py          # Image transforms & feature extraction
+│   ├── postprocessing.py         # Submission utilities
+│   └── utils.py
+├── models/
+│   ├── final_model.pkl           # Trained Random Forest model
+│   └── label_classes.npy         # Label encoder classes
+├── outputs/
+│   ├── submission.csv            # Final submission file
+│   └── metrics.json              # CV and evaluation logs
+├── requirements.txt              # Python dependencies
+└── README.md                     # This file
+```
 
-ResNet18 strikes a good balance between depth and computational efficiency. Its relatively shallow architecture (compared to deeper ResNet variants) allows faster training and inference while still maintaining strong feature extraction capabilities. This makes it ideal for a tabular or spectral dataset where input features are numerical soil parameters rather than raw images.
+---
 
-### Input and Feature Engineering
+## --- Fold 5 ---
+Fold 5 F1 Score: 0.9705
 
-The model takes numerical soil features as input — typically soil spectral measurements or other relevant physical/chemical properties. Proper preprocessing ensures that features are normalized and scaled appropriately, which helps the model converge faster and achieve better accuracy.
+```text
+               precision    recall  f1-score   support
 
-### Model Architecture
+Alluvial soil       0.97      0.97      0.97       105
+   Black Soil       1.00      0.93      0.97        46
+    Clay soil       0.95      0.97      0.96        40
+     Red soil       0.96      1.00      0.98        53
 
-- The backbone is adapted from ResNet18, with modifications to suit the feature dimension and output classes.
-- The final fully connected layer outputs class probabilities corresponding to different soil types.
-- Activation functions like ReLU are used to introduce non-linearity, enabling the model to capture complex soil patterns.
-- Dropout or batch normalization layers may be used to improve generalization and prevent overfitting.
+     accuracy                           0.97       244
+    macro avg       0.97      0.97      0.97       244
+ weighted avg       0.97      0.97      0.97       244
+```
 
-### Training Process
+✅ Average F1 Score: 0.9446
 
-- The model is trained using cross-entropy loss, a standard for multi-class classification.
-- Optimization is typically done using Adam or SGD optimizers with carefully tuned learning rates.
-- The training loop includes regular validation to monitor overfitting and guide hyperparameter tuning.
-- Early stopping or model checkpoints save the best-performing model weights.
+---
 
-### Evaluation Metrics
+## 🎓 Lessons Learned
 
-- Accuracy provides a straightforward measure of correct predictions.
-- The F1-score, particularly important in imbalanced classification problems, balances precision and recall to give a more holistic performance measure.
-- Achieving an F1-score of **0.96** indicates excellent model capability in distinguishing soil classes.
+- **Hybrid approach** (deep features + Random Forest) excels in low-data settings
+- **Macro F1** is crucial for imbalanced classes
+- **Visual inspection** of misclassifications guides augmentation strategies
+
+---
+
+## 👤 About Me
+
+**Sanskar Khandelwal**  
+- Kaggle: [sankhuz](https://www.kaggle.com/sankhuz)  
+- Team: TheLastTransformer 🚀
+
+Feel free to ⭐ the repo and share feedback!
 
 
