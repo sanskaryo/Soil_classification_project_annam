@@ -1,7 +1,7 @@
 <h1 align="center">🌱 Soil Image Classification Challenge (Binary)</h1>
 
 <p align="center">
-  <img src="docs/cards/architecture.png" alt="Model Architecture" width="600" />
+  <img src="https://github.com/sanskaryo/Soil_classification_project_annam/blob/main/challenge2/docs/project_image.jpg?raw=true" alt="Project Image" width="500"/>
 </p>
 
 <p align="center">
@@ -138,18 +138,16 @@ def tune_threshold(y_true, y_probs):
 
 This project is licensed under the MIT License.
 
----
+🙌 Acknowledgements
+Special thanks to:
 
-## 🙌 Acknowledgements
+IIT Ropar × Annam.ai for organizing the competition
 
-- **Annam.ai & IIT Ropar** for the challenge opportunity
-- **PyTorch**, **Torchvision**, **OpenCV** for open-source tools
-- **Kaggle community** for insights & kernels
+OpenCV, PyTorch, torchvision for open-source magic
 
----
+The Kaggle community for 💎 helpful kernels & ideas
 
-## 🚀 Author
-
-**Sanskar Khandelwal**  
-2nd Year AIML Student, GLA University, Mathura  
-✉️ sanskar.khandelwal_cs.aiml23@gla.ac.in
+🚀 Author
+Sanskar – 2nd Year AIML Student
+📍 GLA University | 👨‍💻 Building cool ML tools
+🔗 email - sanskar.khandelwal_cs.aiml23@gla.ac.in
